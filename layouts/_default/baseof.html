@@ -19,7 +19,7 @@
     <meta property="og:title" content="{{ $preview_image.Title }}" />  
   {{ else }}
     <meta property="og:image" content="{{ .Site.Params.profileImage | absURL }}" />
-    <meta property="og:title" content="{{ .Site.Title }} | {{ .Title }}" />   
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}" />   
   {{ end }}
   <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{else}}{{ .Description }}{{ end }}" />
   <meta name="author" content="{{ .Site.Params.firstName }} {{ .Site.Params.lastName }}">
